@@ -1,6 +1,8 @@
 let vai = document.querySelector("#vai")
 let gioco = document.querySelector("#gioco")
 let ready = document.querySelector(".ready")
+let risposte = document.querySelector ("#risposte")
+let vaiRisposte = document.querySelector("#vaiRisposte")
 
 
 function generaNumeri() {
@@ -8,10 +10,10 @@ function generaNumeri() {
 
     for(x=1;x<=5;x++){
         let num = (Math.floor(Math.random() * 100))+1;
-        if (array.includes(num)){
+        if (array.includes(num.toString())){
             x--
         } else {
-            array.push (num)
+            array.push (num.toString())
         }      
     }
     return array
@@ -29,7 +31,7 @@ function stampanumeri (array) {
 
 
  vai.addEventListener("click", function(){
-     generaNumeri()
+    generaNumeri()
 
     let numerirandom = generaNumeri()  
     console.log(numerirandom)
@@ -45,8 +47,31 @@ function stampanumeri (array) {
         
         gioco.classList.add("none")
         gioco.classList.remove("flex")
+        risposte.classList.remove("none")
+        risposte.classList.add("flex")
 
     },5000)
+
+    vaiRisposte.addEventListener("click", function() {
+        let risposte = document.querySelectorAll('input[name^="risposta"]')
+        console.log(numerirandom);
+        let rispostegiuste = [];
+        let rispostesbagliate = [];
+        for(i=0; i < risposte.length; i++) {
+            if (numerirandom.includes(risposte[i].value) && !rispostegiuste.includes(risposte[i].value)){
+                rispostegiuste.push(risposte[i].value)
+            } else {
+                rispostesbagliate.push(risposte[i].value)
+            }
+        }
+
+        console.log(rispostegiuste.join(', '), 'giuste')
+        console.log(rispostesbagliate.join(', '), 'sbagliate')
+        console.log(numerirandom.join(', '), 'numeri')
+        alert ("i numeri erano:" + " " +numerirandom.join(', ') + " " + "hai indovinato :" + " " + rispostegiuste.join(', ') + " " + "ma hai sbagliato :" + " " + rispostesbagliate.join(', ') )
+    })
+
+
     
 
 

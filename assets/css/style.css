@@ -28,13 +28,25 @@ footer {
 .flex {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-#gioco {
+#gioco,
+#risposte {
     margin-top: 2rem;
     width: 100%;
-
 }
+
+.inputtini,
+.bottoncino {
+    flex-basis: 100%;
+}
+
+.bottoncino {
+    margin-top: 1rem;
+    padding: 10px 20px;
+}
+
 
 
 
