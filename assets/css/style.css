@@ -25,12 +25,18 @@ footer {
     padding: 10px 20px;
 }
 
-#gioco {
-    margin-top: 2rem;
-    width: 100%;
+.flex {
     display: flex;
     justify-content: space-around;
 }
+
+#gioco {
+    margin-top: 2rem;
+    width: 100%;
+
+}
+
+
 
 .card {
     height: 8rem;
@@ -44,3 +50,6 @@ footer {
     color: white;
 }
 
+.none {
+    display: none;
+}
